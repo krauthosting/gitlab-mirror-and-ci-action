@@ -21,7 +21,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Mirror + trigger CI
-      uses: SvanBoxel/gitlab-mirror-and-ci-action@master
+      uses: krauthosting/gitlab-mirror-and-ci-action@master
       with:
         args: "https://gitlab.com/<namespace>/<repository>"
       env:
