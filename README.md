@@ -40,3 +40,5 @@ For granular permissions create seperate users and tokens in GitLab with restric
 If you're rewriting history in the primary repo (e.g by using `git rebase`), you'll need to force push. Set the `FORCE_PUSH` environment variable to `true` to enable this. This will overwrite history in the mirror as well, so be **careful with this** (just like any time you're using `git push --force`).
 
 If you want to mirror repository tags too, you can define `FOLLOW_TAGS` environment variable to `true`.
+
+If you don't want to wait for the CI and just mirror the repository, you can set `WAIT_FOR_CI` to `false`.

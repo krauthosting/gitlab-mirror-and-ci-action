@@ -45,6 +45,12 @@ then
   sh -c "git push --tags mirror $branch"
 fi
 
+if [ "${WAIT_FOR_CI:-}" = "false" ]
+then
+  echo "Skipping CI results because WAIT_FOR_CI is false"
+  exit 0
+fi
+
 sleep $POLL_TIMEOUT
 
 pipeline_id=$(curl --header "PRIVATE-TOKEN: $GITLAB_PASSWORD" --silent "https://${GITLAB_HOSTNAME}/api/v4/projects/${GITLAB_PROJECT_ID}/repository/commits/${branch_uri}" | jq '.last_pipeline.id')
